@@ -15,7 +15,7 @@ var milk = new Grocery("milk", "dairy");
 var eggs = new Grocery("eggs", "meat");
 
 //Autofocus cursor to input field on page load
-$('.newItemBox').focus();
+// $('.newItemBox').focus();
 
 
 
