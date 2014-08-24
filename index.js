@@ -14,12 +14,16 @@ var Grocery = function(name, category) {
 var milk = new Grocery("milk", "dairy");
 var eggs = new Grocery("eggs", "meat");
 
-//Autofocus cursor to input field on page load
-// $('.newItemBox').focus();
+// $('button').click(function(onclick) {
+//   alert("clicked");
+  // var newItem = $('.newItemBox').val();
+  // var newCategory = $('.newCategory').val();
+  // // Grocery(newItem, newCategory);
+  // alert(newItem);
+  // alert(newCategory);
+  // alert(listofAll);
+  // alert(itemList);
+  // alert(categoryList);
 
+});
 
-
-
-// console.log(listofAll);
-// console.log(itemList);
-// console.log(categoryList);
