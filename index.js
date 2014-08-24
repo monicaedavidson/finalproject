@@ -14,8 +14,8 @@ var Grocery = function(name, category) {
 var milk = new Grocery("milk", "dairy");
 var eggs = new Grocery("eggs", "meat");
 
-alert('JS loaded');
-
+//Autofocus cursor to input field on page load
+$('.newItemBox').focus();
 
 
 
