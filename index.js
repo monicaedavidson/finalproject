@@ -14,8 +14,8 @@ var Grocery = function(name, category) {
 var milk = new Grocery("milk", "dairy");
 var eggs = new Grocery("eggs", "meat");
 
-// $('button').click(function(onclick) {
-//   alert("clicked");
+$('button').on('click', function() {
+  alert("clicked");
   // var newItem = $('.newItemBox').val();
   // var newCategory = $('.newCategory').val();
   // // Grocery(newItem, newCategory);
