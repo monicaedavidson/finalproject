@@ -14,24 +14,16 @@ var Grocery = function(name, category) {
 var milk = new Grocery("milk", "dairy");
 var eggs = new Grocery("eggs", "meat");
 
+$('button').on('click', function() {
+  alert("clicked");
+  // var newItem = $('.newItemBox').val();
+  // var newCategory = $('.newCategory').val();
+  // // Grocery(newItem, newCategory);
+  // alert(newItem);
+  // alert(newCategory);
+  // alert(listofAll);
+  // alert(itemList);
+  // alert(categoryList);
 
-// listofAll = [
-//   new Grocery("milk", "dairy"),
-//   new Grocery("butter", "dairy"),
-//   new Grocery("eggs", "meat"),
-//   new Grocery("shampoo", "personal care")
-// ];
+});
 
-// for (key in listofAll) {
-//   itemList.push(key);
-//   console.log(key);
-// }
-
-// for (i = 0; i < itemList.length; i++) {
-//     categoryList.push(itemList[i]);
-//     console.log(itemList[i]);
-// }
-
-console.log(listofAll);
-// console.log(itemList);
-// console.log(categoryList);
