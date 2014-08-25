@@ -1,6 +1,6 @@
 
 var myVar = setInterval(function(){myTimer()}, 1000);
-var startTime;   // string with time that start button was poushed, "hh:mm:ss"
+var startTime;   // string with time that start button was pushed, "hh:mm:ss"
 var elapsedTimeSec; // number of seconds since start button pushed
 
 //set interval
@@ -29,16 +29,10 @@ function getElapsedTime() {
     elapsedTimeSec = elapsedTimeSec - mins*60;
     var secs = elapsedTimeSec;
     
-    var strElapsedTime = hrs.toString(10) + ":" + mins.toString(10) + ":" + secs.toString(10);
+    var strElapsedTime = hrs.toString(10) + " " + "hours" + " " + mins.toString(10) + " " + "minutes" + " " + secs.toString(10) + " " + "seconds";
+
     var res = document.getElementById('results');
     res.innerHTML = strElapsedTime;
 }
-
-
-
-
-
-
-
 
 
