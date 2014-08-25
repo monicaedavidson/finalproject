@@ -9,7 +9,7 @@ var Grocery = function(name, category) {
   listofAll.push(this);
   itemList.push(this.name);
   categoryList.push(this.category);
-}
+};
 
 var milk = new Grocery("milk", "dairy");
 var eggs = new Grocery("eggs", "meat");
@@ -31,4 +31,8 @@ var eggs = new Grocery("eggs", "meat");
 $("#addButton").click(function() {
   $("#newCategory").append("<p class='newGrocerycategory'>" + $("#categoryNameID").val() + "</p>");
   $("#newList").append("<p class='newGroceryitem'>" + $("#itemNameID").val() + "</p>");
-  });
+});
+
+$(function() {
+  $("#groceryList").accordion();
+});
