@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BucketList</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link href="base.css" type="text/css" rel="stylesheet" />
-  <link href="layout.css" type="text/css" rel="stylesheet" />
-  <link href="module.css" type="text/css" rel="stylesheet" />
-  <link href="state.css" type="text/css" rel="stylesheet" />
-  <link href="theme.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-  <img src="logo.png" />
-  <div id="listingArea">
-    <form>
-      <input type="text" class="newItemBox" name="itemName" autofocus accept-charset="utf-8" placeholder="Type item name here..." />
-      <p>Select a category:</p>
-      <select name="categories">
-        <option value="dairy">Dairy</option>
-        <option value="bakery">Bakery</option>
-        <option value="deli">Deli</option>
-        <option value="seafood">Seafood</option>
-        <option value="produce">Produce</option>
-        <option value="dryGoods">Dry Goods</option>
-        <option value="frozen">Frozen</option>
-      </select>
-      <p>Or create a new category:</p>
-        <input type="text" class="newCategory" name="categoryName" accept-charset="utf-8" placeholder="Name of new category..." />
-      <div>
-        <button id="addButton">Add item</button>
-      </div>
-    </form>
-  </div>
+  <head>
+    <title>BucketList</title>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+    <link href="base.css" type="text/css" rel="stylesheet" />
+    <link href="layout.css" type="text/css" rel="stylesheet" />
+    <link href="module.css" type="text/css" rel="stylesheet" />
+    <link href="state.css" type="text/css" rel="stylesheet" />
+    <link href="theme.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <img src="logo.png" />
+    <div id="listingArea">
+      <form>
+        <input type="text" class="newItemBox" name="itemName" id="itemNameID" autofocus accept-charset="utf-8" placeholder="Type item name here..." />
+        <p>Select a category:</p>
+        <select name="categories" id="categoryNameID">
+          <option value="dairy">Dairy</option>
+          <option value="bakery">Bakery</option>
+          <option value="deli">Deli</option>
+          <option value="seafood">Seafood</option>
+          <option value="produce">Produce</option>
+          <option value="dryGoods">Dry Goods</option>
+          <option value="frozen">Frozen</option>
+        </select>
+        <p>Or create a new category:</p>
+          <input type="text" class="newCategory" name="categoryName" accept-charset="utf-8" placeholder="Name of new category..." />
+      </form>
+      <button id="addButton">Add item</button>
+    </div>
     <script src='jquery-1.11.1.min.js'></script>
-    <script src='index.js' type='text/javascript'</script>
-</body>
+    <script src='index.js' type='text/javascript'></script>
+  </body>
 </html>

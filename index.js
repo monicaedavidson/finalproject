@@ -14,16 +14,20 @@ var Grocery = function(name, category) {
 var milk = new Grocery("milk", "dairy");
 var eggs = new Grocery("eggs", "meat");
 
-$('button').on('click', function() {
-  alert("clicked");
-  // var newItem = $('.newItemBox').val();
-  // var newCategory = $('.newCategory').val();
-  // // Grocery(newItem, newCategory);
-  // alert(newItem);
-  // alert(newCategory);
-  // alert(listofAll);
-  // alert(itemList);
-  // alert(categoryList);
+// $('button').on('click', function() {
+//   // var newItem = $('.newItemBox').val();
+//   // var newCategory = $('.newCategory').val();
+//   // // Grocery(newItem, newCategory);
+//   // alert(newItem);
+//   // alert(newCategory);
+//   // alert(listofAll);
+//   // alert(itemList);
+//   // alert(categoryList);
 
-});
+// });
 
+$(document).ready(function() {
+  $("#addButton").click(function() {
+    $(".newItem").append("<p>" + $("#itemNameID").val() + ": " + $("#categoryNameID").val() + "</p>")
+  })
+})
