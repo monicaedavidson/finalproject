@@ -29,5 +29,6 @@ var eggs = new Grocery("eggs", "meat");
 // });
 
 $("#addButton").click(function() {
-  $("#groceryList").prepend("<p class='newGrocery'>" + $("#itemNameID").val() + " " + $("#categoryNameID").val() + "</p>");
+  $("#newCategory").append("<p class='newGrocerycategory'>" + $("#categoryNameID").val() + "</p>");
+  $("#newList").append("<p class='newGroceryitem'>" + $("#itemNameID").val() + "</p>");
   });
