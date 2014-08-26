@@ -1,3 +1,5 @@
+alert('JS Loaded!');
+
 //Lists the items user has added to current grocery list
 var itemList = [];
 var categoryList = [];
@@ -53,18 +55,20 @@ var listofAll = dairyList + bakeryList + meatList + seafoodList + produceList +
 var Grocery = function(name, category) {
   this.name = name,
   this.category = category,
+
   itemList.push(this.name);
   categoryList.push(this.category);
+
   this.whichDivID = (function() {
-    alert("Method!");
+    alert("This.category is: " + this.category);
     switch (this.category) {
-      case "Dairy":
+      case "dairy":
         return "id='dairyList'";
         break;
-      case "Bakery":
+      case "bakery":
         return "id='bakeryList'";
         break;
-      case "Meat":
+      case "meat":
         return "id='meatList'";
         break;
       case "Seafood":
@@ -82,17 +86,19 @@ var Grocery = function(name, category) {
       case "Personal Items":
         return "id='personalItemsList'";
         break;
+      default:
+        return "BLAAAAAAAH";
+    };
+  })(),
 
-    this.addToList = (function() {
-      alert('')
-      var $whichDiv = $("'#'" + this.whichDivID + "'");
-      $whichDiv.append('<p>Test</p>');
-    });
-  };
-
-  //Do not delete. IIFE.
-  })();
-};
+  this.addToList = (function() {
+    alert("This.whichDivID is: " + this.whichDivID);
+    var whichDiv = "'#" + this.whichDivID + "'";
+    // var $whichDiv = $
+    alert("which Div is: " + whichDiv);
+    // $whichDiv.append('<p>Test</p>');
+  })()
+}
 
 //Pseudocode for adding a div
 // $(category).append("<p class='newGroceryitem'>" stuff)
@@ -101,10 +107,10 @@ var Grocery = function(name, category) {
 $('#addButton').click(function() {
   var itemName = $("#itemNameID").val();
   var catName = $("#categoryNameID").val();
-  newListItem = new Grocery(itemName, catName);
-  alert(itemName + " " + catName);
-  alert(itemList);
-  alert(categoryList);
+  Grocery(itemName, catName);
+  alert("itemName and catName are: " + itemName + " " + catName);
+  // alert(itemList);
+  // alert(categoryList);
 });
 
 $(function() {
