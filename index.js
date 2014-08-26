@@ -1,5 +1,8 @@
+//Lists the items user has added to current grocery list
 var itemList = [];
 var categoryList = [];
+
+//List of items available to choose by category
 var dairyList = [
   "Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
   "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",
@@ -7,7 +10,7 @@ var dairyList = [
 var bakeryList = ["Bagels", "Bread", "Brownies", "Cake", "Cookies",
   "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie"];
 var meatList = ["Bacon", "Beef", "Chicken", "Duck", "Goat",
-  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal"];
+  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal", "Donkey"];
 var seafoodList = ["Catfish", "Clams", "Crab", "Lobster", "Oysters",
   "Prawns", "Salmon", "Shrimp"];
 var produceList = [
@@ -28,11 +31,21 @@ var personalItemsList = ["Aspirin", "Body Wash", "Brush", "Conditioner",
   "Condoms", "Deodorant", "Diapers", "Face Wash", "Floss", "Lotion",
   "Makeup", "Moisturizer", "Q-tips", "Shampoo", "Sunscreen", "Toothbrush",
   "Toothpaste", "Vitamins"];
+
+//List of all items available to choose
 var listofAll = dairyList + bakeryList + meatList + seafoodList + produceList +
   dryGoodsList + beveragesList + personalItemsList;
-alert(listofAll);
 
-//Autocomplete
+//Dictionary linking items to respective categories
+//Pseudocode:
+//Iterate through each list using .each(). Key = item name, value = category
+//Example:
+//var listDic = {
+//   "Milk" : "Dairy";
+//   "Eggs" : "Dairy";
+//}
+
+// Autocomplete
 // $("#itemNameID").autocomplete({
 //   source: listofAll;
 // });
@@ -42,34 +55,40 @@ var Grocery = function(name, category) {
   this.category = category,
   itemList.push(this.name);
   categoryList.push(this.category);
-  this.addToList = (function() {
+  this.whichDivID = (function() {
     alert("Method!");
     switch (this.category) {
       case "Dairy":
         return "id='dairyList'";
         break;
       case "Bakery":
-        alert("U choze Bakery");
+        return "id='bakeryList'";
         break;
       case "Meat":
-        alert("Meat");
+        return "id='meatList'";
         break;
       case "Seafood":
-        alert("Seafood");
+        return "id='seafoodList'";
         break;
       case "Dry Goods":
-        alert("Dry Goods");
+        return "id='dryGoodsList'";
         break;
       case "Produce":
-        alert("Produce");
+        return "id='produceList'";
         break;
       case "Beverages":
-        alert("Beverages");
+        return "id='beveragesList'";
         break;
       case "Personal Items":
-        alert("Personal Items");
+        return "id='personalItemsList'";
         break;
-    };
+
+    this.addToList = (function() {
+      alert('')
+      var $whichDiv = $("'#'" + this.whichDivID + "'");
+      $whichDiv.append('<p>Test</p>');
+    });
+  };
 
   //Do not delete. IIFE.
   })();
