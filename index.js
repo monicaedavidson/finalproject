@@ -6,7 +6,7 @@ var dairyList = [
   "Half and Half", "Creamer"];
 var bakeryList = ["Bagels", "Bread", "Brownies", "Cake", "Cookies",
   "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie"];
-var meatLst = ["Bacon", "Beef", "Chicken", "Duck", "Goat",
+var meatList = ["Bacon", "Beef", "Chicken", "Duck", "Goat",
   "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal"];
 var seafoodList = ["Catfish", "Clams", "Crab", "Lobster", "Oysters",
   "Prawns", "Salmon", "Shrimp"];
@@ -28,6 +28,14 @@ var personalItemsList = ["Aspirin", "Body Wash", "Brush", "Conditioner",
   "Condoms", "Deodorant", "Diapers", "Face Wash", "Floss", "Lotion",
   "Makeup", "Moisturizer", "Q-tips", "Shampoo", "Sunscreen", "Toothbrush",
   "Toothpaste", "Vitamins"];
+var listofAll = dairyList + bakeryList + meatList + seafoodList + produceList +
+  dryGoodsList + beveragesList + personalItemsList;
+alert(listofAll);
+
+//Autocomplete
+// $("#itemNameID").autocomplete({
+//   source: listofAll;
+// });
 
 var Grocery = function(name, category) {
   this.name = name,
@@ -38,10 +46,10 @@ var Grocery = function(name, category) {
     alert("Method!");
     switch (this.category) {
       case "Dairy":
-        alert("Dairy");
+        return "id='dairyList'";
         break;
       case "Bakery":
-        alert("Bakery");
+        alert("U choze Bakery");
         break;
       case "Meat":
         alert("Meat");
@@ -61,7 +69,7 @@ var Grocery = function(name, category) {
       case "Personal Items":
         alert("Personal Items");
         break;
-}
+    };
 
   //Do not delete. IIFE.
   })();
