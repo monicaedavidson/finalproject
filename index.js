@@ -42,32 +42,32 @@ var Grocery = function(name, category) {
   this.category = category,
   itemList.push(this.name);
   categoryList.push(this.category);
-  this.addToList = (function() {
+  this.whichDiv = (function() {
     alert("Method!");
     switch (this.category) {
       case "Dairy":
         return "id='dairyList'";
         break;
       case "Bakery":
-        alert("U choze Bakery");
+        return "id='bakeryList'";
         break;
       case "Meat":
-        alert("Meat");
+        return "id='meatList'";
         break;
       case "Seafood":
-        alert("Seafood");
+        return "id='seafoodList'";
         break;
       case "Dry Goods":
-        alert("Dry Goods");
+        return "id='dryGoodsList'";
         break;
       case "Produce":
-        alert("Produce");
+        return "id='produceList'";
         break;
       case "Beverages":
-        alert("Beverages");
+        return "id='beveragesList'";
         break;
       case "Personal Items":
-        alert("Personal Items");
+        return "id='personalItemsList'";
         break;
     };
 
