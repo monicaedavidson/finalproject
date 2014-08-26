@@ -71,19 +71,19 @@ var Grocery = function(name, category) {
       case "meat":
         return "id='meatList'";
         break;
-      case "Seafood":
+      case "seafood":
         return "id='seafoodList'";
         break;
-      case "Dry Goods":
+      case "dryGoods":
         return "id='dryGoodsList'";
         break;
-      case "Produce":
+      case "produce":
         return "id='produceList'";
         break;
-      case "Beverages":
+      case "beverages":
         return "id='beveragesList'";
         break;
-      case "Personal Items":
+      case "personalItems":
         return "id='personalItemsList'";
         break;
       default:
