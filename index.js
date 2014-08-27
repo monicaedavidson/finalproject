@@ -126,7 +126,7 @@ var a = $('#itemNameID').autocomplete({
   lookup: ["Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
   "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",
   "Half and Half", "Creamer", "Bagels", "Bread", "Brownies", "Cake", "Cookies",
-  "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie", "Bacon", "Beef", "Chicken", "Duck", "Goat",
+  "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie", "Bacon", "Beef", "Chicken", "Duck", "Goat", "Donkey",
   "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal", "Catfish", "Clams", "Crab", "Lobster", "Oysters",
   "Prawns", "Salmon", "Shrimp", "Apple", "Apricot", "Asparagus", "Avocado", "Banana",
   "Blueberries", "Broccoli", "Cabbage", "Carrot",
