@@ -2,18 +2,19 @@
 var itemList = [];
 var categoryList = [];
 
-//List of items available to choose by category
-var dairyList = [
+//raw data of items
+rawCategoriesWithItems = {
+  dairy: [
   "Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
   "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",
-  "Half and Half", "Creamer"];
-var bakeryList = ["Bagels", "Bread", "Brownies", "Cake", "Cookies",
-  "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie"];
-var meatList = ["Bacon", "Beef", "Chicken", "Duck", "Goat",
-  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal", "Donkey"];
-var seafoodList = ["Catfish", "Clams", "Crab", "Lobster", "Oysters",
-  "Prawns", "Salmon", "Shrimp"];
-var produceList = [
+  "Half and Half", "Creamer"],
+  bakery: ["Bagels", "Bread", "Brownies", "Cake", "Cookies",
+  "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie"],
+  meat: ["Bacon", "Beef", "Chicken", "Duck", "Goat",
+  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal", "Donkey"],
+  seafood: ["Catfish", "Clams", "Crab", "Lobster", "Oysters",
+  "Prawns", "Salmon", "Shrimp"],
+  produce: [
   "Apple", "Apricot", "Asparagus", "Avocado", "Banana",
   "Blueberries", "Broccoli", "Cabbage", "Carrot",
   "Cauliflower", "Celery", "Cherries", "Coconut",
@@ -21,31 +22,39 @@ var produceList = [
   "Mushrooms", "Onion", "Orange", "Peach", "Pepper",
   "Pineapple", "Potato", "Raspberries", "Spinach", "Strawberries",
   "Tomato", "Watermelon"
-  ];
-var dryGoodsList = ["Beans", "Candy", "Cereal", "Chips", "Chocolate",
+  ],
+  dryGoods: ["Beans", "Candy", "Cereal", "Chips", "Chocolate",
   "Crackers", "Jerky", "Nuts", "Oreos", "Pasta", "Popcorn", "Pretzels",
-  "Rice Cake", "Soup", "Trail Mix", "Canned Soup", "Twinkies"];
-var beveragesList = ["Beer", "Cocoa", "Coffee", "Coke", "Juice",
-  "Liquor", "Booze", "Pepsi", "Soda", "Tea", "Water", "Wine"];
-var personalItemsList = ["Aspirin", "Body Wash", "Brush", "Conditioner",
+  "Rice Cake", "Soup", "Trail Mix", "Canned Soup", "Twinkies"],
+  beverages: ["Beer", "Cocoa", "Coffee", "Coke", "Juice",
+  "Liquor", "Booze", "Pepsi", "Soda", "Tea", "Water", "Wine"],
+  personalItems: ["Aspirin", "Body Wash", "Brush", "Conditioner",
   "Condoms", "Deodorant", "Diapers", "Face Wash", "Floss", "Lotion",
   "Makeup", "Moisturizer", "Q-tips", "Shampoo", "Sunscreen", "Toothbrush",
-  "Toothpaste", "Vitamins"];
+  "Toothpaste", "Vitamins"],
+};
 
-//List of all items available to choose
-var listofAll = dairyList + bakeryList + meatList + seafoodList + produceList +
-  dryGoodsList + beveragesList + personalItemsList;
+//list constructor function
+function List (categoryName, itemsInCategory) {
+  this.name = categoryName;
+  this.items = itemsInCategory;
+  //method to determine if inputted item is in this specific list
+  this.hasItem = function (item) {
+    if (this.items.indexOf(item) > -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
 
-//Dictionary linking items to respective categories
-//Pseudocode:
-//Iterate through each list using .each(). Key = item name, value = category
-//Example:
-// var listDic = [
-//   {"Milk" : "Dairy"},
-//   {"Eggs" : "Dairy"},
-//   {"Beef" : "Meat"},
-//   {"Chicken" : "Meat"}
-// ];
+//list that contains all of the categories with their respective items
+var masterList = [];
+
+//populates the master list
+$.each(rawCategoriesWithItems, function(category, items) {
+  masterList.push(new List(category, items));
+});
 
 var Grocery = function(name, category) {
   this.name = name,
@@ -84,7 +93,7 @@ var Grocery = function(name, category) {
       default:
         return "BLAAAAAAAH";
     };
-  })(),
+  }),
 
   this.addToList = (function() {
     $(this.whichDivID).append('<p class="nestled">' + this.name + '</p>');
@@ -128,28 +137,17 @@ $(function() {
   $("#groceryList").accordion();
 });
 
+var allItems = [];
+$.each(masterList, function(i, list) {
+  allItems = allItems.concat(list.items);
+});
+
 //taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
 
   // callback function:
   //onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
   // local autosugest options:
-  lookup: ["Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
-  "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",
-  "Half and Half", "Creamer", "Bagels", "Bread", "Brownies", "Cake", "Cookies",
-  "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie", "Bacon", "Beef", "Chicken", "Duck", "Goat", "Donkey",
-  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal", "Catfish", "Clams", "Crab", "Lobster", "Oysters",
-  "Prawns", "Salmon", "Shrimp", "Apple", "Apricot", "Asparagus", "Avocado", "Banana",
-  "Blueberries", "Broccoli", "Cabbage", "Carrot",
-  "Cauliflower", "Celery", "Cherries", "Coconut",
-  "Corn", "Cucumber", "Grapes", "Kiwi", "Lemon",
-  "Mushrooms", "Onion", "Orange", "Peach", "Pepper",
-  "Pineapple", "Potato", "Raspberries", "Spinach", "Strawberries",
-  "Tomato", "Watermelon", "Beans", "Candy", "Cereal", "Chips", "Chocolate",
-  "Crackers", "Jerky", "Nuts", "Oreos", "Pasta", "Popcorn", "Pretzels",
-  "Rice Cake", "Soup", "Trail Mix", "Canned Soup", "Twinkies", "Beer", "Cocoa", "Coffee", "Coke", "Juice",
-  "Liquor", "Booze", "Pepsi", "Soda", "Tea", "Water", "Wine", "Aspirin", "Body Wash", "Brush", "Conditioner",
-  "Condoms", "Deodorant", "Diapers", "Face Wash", "Floss", "Lotion",
-  "Makeup", "Moisturizer", "Q-tips", "Shampoo", "Sunscreen", "Toothbrush",
-  "Toothpaste", "Vitamins"] //local lookup values
+  lookup: allItems
+     //local lookup values
 });
