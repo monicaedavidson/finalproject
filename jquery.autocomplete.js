@@ -31,13 +31,16 @@
             return {
                 escapeRegExChars: function (value) {
                     return value.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-                },
+                }, //where to edit the drop down
                 createNode: function (containerClass) {
                     var div = document.createElement('div');
                     div.className = containerClass;
                     div.style.position = 'absolute';
                     div.style.display = 'none';
-                    div.style.color = 'red';
+                    div.style.color = '#4E4C4C';
+                    div.style.background = 'white';
+                    div.style.text = 'Helvetica';
+
                     return div;
                 }
             };
@@ -65,7 +68,7 @@
                 onSelect: null,
                 width: 'auto',
                 minChars: 1,
-                maxHeight: 300,
+                maxHeight: 600,
                 deferRequestBy: 0,
                 params: {},
                 formatResult: Autocomplete.formatResult,
