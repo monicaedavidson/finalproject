@@ -130,9 +130,9 @@ $(function() {
 
 //taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
-  serviceUrl:'service/autocomplete.ashx',
+
   // callback function:
-  onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
+  //onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
   // local autosugest options:
   lookup: ["Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
   "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",
