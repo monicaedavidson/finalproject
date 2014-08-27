@@ -36,6 +36,7 @@ function getElapsedTime() {
 }
 
 
+<<<<<<< HEAD
 
 
 
@@ -48,3 +49,5 @@ function getElapsedTime() {
 
 
 
+=======
+>>>>>>> bbc18b2363f1a1b2dfe4b8b3dafecc47ea3d976c
