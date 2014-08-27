@@ -53,16 +53,9 @@ var Grocery = function(name, category) {
 
   itemList.push(this.name);
   categoryList.push(this.category);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  this.addToList = (function() {
-    alert("Method!");
-=======
 
   this.whichDivID = (function() {
     alert("This.category is: " + this.category);
->>>>>>> 4b51e360bdd2efafab4e94a63ce5d204a7335e7a
     switch (this.category) {
       case "dairy":
         return "#dairyList";
@@ -93,62 +86,21 @@ var Grocery = function(name, category) {
     };
   })(),
 
-<<<<<<< HEAD
-  //Do not delete. IIFE.
-  })();
->>>>>>> 8764c20fd15129f58374c61616ab7f14ec0cd95d
-};
-=======
   this.addToList = (function() {
     alert("This.whichDivID is: " + this.whichDivID);
     $(this.whichDivID).append('<p class="nestled">Variable worked</p>');
   })()
 }
->>>>>>> 4b51e360bdd2efafab4e94a63ce5d204a7335e7a
 
-<<<<<<< HEAD
-//Pseudocode for adding a div
-// $(category).append("<p class='newGroceryitem'>" stuff)
-
-<<<<<<< HEAD
-// $('button').on('click', function() {
-//   var newItem = $('.newItemBox').val();
-//   var selectCategory = $('#categoryNameID').val();
-//   var newCategory = $('.newCategory').val();
-//   // Grocery(newItem, newCategory);
-//   alert(newItem);
-//   alert(selectCategory);
-//   alert(newCategory);
-//   alert(listofAll);
-//   alert(itemList);
-//   alert(categoryList);
-
-// });
-
-$("#addButton").click(function() {
-  $("#newCategory").append("<p class='newGrocerycategory'>" + $("#categoryNameID").val() + "</p>");
-  $("#newList").append("<p class='newGroceryitem'>" + $("#itemNameID").val() + "</p>");
-=======
-
-=======
 //On button click, grabs values from input fields,
 //creates Ojects and inserts into DOM
->>>>>>> 6a472faa993546ed36ea11a6b4bc9049d4980a66
 $('#addButton').click(function() {
   var itemName = $("#itemNameID").val();
   var catName = $("#categoryNameID").val();
-<<<<<<< HEAD
-  newListItem = new Grocery(itemName, catName);
-  alert(itemName + " " + catName);
-  alert(itemList);
-  alert(categoryList);
->>>>>>> 8764c20fd15129f58374c61616ab7f14ec0cd95d
-=======
   Grocery(itemName, catName);
   alert("itemName and catName are: " + itemName + " " + catName);
   // alert(itemList);
   // alert(categoryList);
->>>>>>> 4b51e360bdd2efafab4e94a63ce5d204a7335e7a
 });
 
 $(function() {
@@ -157,9 +109,9 @@ $(function() {
 
 //taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
-  serviceUrl:'service/autocomplete.ashx',
+
   // callback function:
-  onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
+  //onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
   // local autosugest options:
   lookup: ["Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
   "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",

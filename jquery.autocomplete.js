@@ -37,6 +37,7 @@
                     div.className = containerClass;
                     div.style.position = 'absolute';
                     div.style.display = 'none';
+                    div.style.color = 'red';
                     return div;
                 }
             };
