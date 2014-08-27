@@ -1,5 +1,10 @@
+alert('JS Loaded!');
+
+//Lists the items user has added to current grocery list
 var itemList = [];
 var categoryList = [];
+
+//List of items available to choose by category
 var dairyList = [
   "Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
   "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",
@@ -7,7 +12,7 @@ var dairyList = [
 var bakeryList = ["Bagels", "Bread", "Brownies", "Cake", "Cookies",
   "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie"];
 var meatList = ["Bacon", "Beef", "Chicken", "Duck", "Goat",
-  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal"];
+  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal", "Donkey"];
 var seafoodList = ["Catfish", "Clams", "Crab", "Lobster", "Oysters",
   "Prawns", "Salmon", "Shrimp"];
 var produceList = [
@@ -28,11 +33,21 @@ var personalItemsList = ["Aspirin", "Body Wash", "Brush", "Conditioner",
   "Condoms", "Deodorant", "Diapers", "Face Wash", "Floss", "Lotion",
   "Makeup", "Moisturizer", "Q-tips", "Shampoo", "Sunscreen", "Toothbrush",
   "Toothpaste", "Vitamins"];
+
+//List of all items available to choose
 var listofAll = dairyList + bakeryList + meatList + seafoodList + produceList +
   dryGoodsList + beveragesList + personalItemsList;
-alert(listofAll);
 
-//Autocomplete
+//Dictionary linking items to respective categories
+//Pseudocode:
+//Iterate through each list using .each(). Key = item name, value = category
+//Example:
+//var listDic = {
+//   "Milk" : "Dairy";
+//   "Eggs" : "Dairy";
+//}
+
+// Autocomplete
 // $("#itemNameID").autocomplete({
 //   source: listofAll;
 // });
@@ -40,43 +55,64 @@ alert(listofAll);
 var Grocery = function(name, category) {
   this.name = name,
   this.category = category,
+
   itemList.push(this.name);
   categoryList.push(this.category);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   this.addToList = (function() {
     alert("Method!");
+=======
+
+  this.whichDivID = (function() {
+    alert("This.category is: " + this.category);
+>>>>>>> 4b51e360bdd2efafab4e94a63ce5d204a7335e7a
     switch (this.category) {
-      case "Dairy":
+      case "dairy":
         return "id='dairyList'";
         break;
-      case "Bakery":
-        alert("U choze Bakery");
+      case "bakery":
+        return "id='bakeryList'";
         break;
-      case "Meat":
-        alert("Meat");
+      case "meat":
+        return "id='meatList'";
         break;
-      case "Seafood":
-        alert("Seafood");
+      case "seafood":
+        return "id='seafoodList'";
         break;
-      case "Dry Goods":
-        alert("Dry Goods");
+      case "dryGoods":
+        return "id='dryGoodsList'";
         break;
-      case "Produce":
-        alert("Produce");
+      case "produce":
+        return "id='produceList'";
         break;
-      case "Beverages":
-        alert("Beverages");
+      case "beverages":
+        return "id='beveragesList'";
         break;
-      case "Personal Items":
-        alert("Personal Items");
+      case "personalItems":
+        return "id='personalItemsList'";
         break;
+      default:
+        return "BLAAAAAAAH";
     };
+  })(),
 
+<<<<<<< HEAD
   //Do not delete. IIFE.
   })();
 >>>>>>> 8764c20fd15129f58374c61616ab7f14ec0cd95d
 };
+=======
+  this.addToList = (function() {
+    alert("This.whichDivID is: " + this.whichDivID);
+    var whichDiv = "'#" + this.whichDivID + "'";
+    // var $whichDiv = $
+    alert("which Div is: " + whichDiv);
+    // $whichDiv.append('<p>Test</p>');
+  })()
+}
+>>>>>>> 4b51e360bdd2efafab4e94a63ce5d204a7335e7a
 
 //Pseudocode for adding a div
 // $(category).append("<p class='newGroceryitem'>" stuff)
@@ -104,11 +140,18 @@ $("#addButton").click(function() {
 $('#addButton').click(function() {
   var itemName = $("#itemNameID").val();
   var catName = $("#categoryNameID").val();
+<<<<<<< HEAD
   newListItem = new Grocery(itemName, catName);
   alert(itemName + " " + catName);
   alert(itemList);
   alert(categoryList);
 >>>>>>> 8764c20fd15129f58374c61616ab7f14ec0cd95d
+=======
+  Grocery(itemName, catName);
+  alert("itemName and catName are: " + itemName + " " + catName);
+  // alert(itemList);
+  // alert(categoryList);
+>>>>>>> 4b51e360bdd2efafab4e94a63ce5d204a7335e7a
 });
 
 $(function() {
