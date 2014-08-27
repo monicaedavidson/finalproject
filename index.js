@@ -116,3 +116,29 @@ $('#addButton').click(function() {
 $(function() {
   $("#groceryList").accordion();
 });
+
+//taken from devbridge guide to autocomplete
+var a = $('#itemNameID').autocomplete({
+  serviceUrl:'service/autocomplete.ashx',
+  // callback function:
+  onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
+  // local autosugest options:
+  lookup: ["Milk", "Eggs", "Butter", "Cheese", "Ice Cream",
+  "Sour Cream", "Yogurt", "Cream Cheese", "Cottage Cheese", "Cream",
+  "Half and Half", "Creamer", "Bagels", "Bread", "Brownies", "Cake", "Cookies",
+  "Croissants", "Cupcakes", "Doughnuts", "Muffins", "Pie", "Bacon", "Beef", "Chicken", "Duck", "Goat",
+  "Horse", "Hot Dogs", "Pigeon", "Pork", "Turkey", "Veal", "Catfish", "Clams", "Crab", "Lobster", "Oysters",
+  "Prawns", "Salmon", "Shrimp", "Apple", "Apricot", "Asparagus", "Avocado", "Banana",
+  "Blueberries", "Broccoli", "Cabbage", "Carrot",
+  "Cauliflower", "Celery", "Cherries", "Coconut",
+  "Corn", "Cucumber", "Grapes", "Kiwi", "Lemon",
+  "Mushrooms", "Onion", "Orange", "Peach", "Pepper",
+  "Pineapple", "Potato", "Raspberries", "Spinach", "Strawberries",
+  "Tomato", "Watermelon", "Beans", "Candy", "Cereal", "Chips", "Chocolate",
+  "Crackers", "Jerky", "Nuts", "Oreos", "Pasta", "Popcorn", "Pretzels",
+  "Rice Cake", "Soup", "Trail Mix", "Canned Soup", "Twinkies", "Beer", "Cocoa", "Coffee", "Coke", "Juice",
+  "Liquor", "Booze", "Pepsi", "Soda", "Tea", "Water", "Wine", "Aspirin", "Body Wash", "Brush", "Conditioner",
+  "Condoms", "Deodorant", "Diapers", "Face Wash", "Floss", "Lotion",
+  "Makeup", "Moisturizer", "Q-tips", "Shampoo", "Sunscreen", "Toothbrush",
+  "Toothpaste", "Vitamins"] //local lookup values
+});
