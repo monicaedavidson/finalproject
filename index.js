@@ -1,5 +1,3 @@
-// alert('JS Loaded!');
-
 //Lists the items user has added to current grocery list
 var itemList = [];
 var categoryList = [];
@@ -42,10 +40,12 @@ var listofAll = dairyList + bakeryList + meatList + seafoodList + produceList +
 //Pseudocode:
 //Iterate through each list using .each(). Key = item name, value = category
 //Example:
-//var listDic = {
-//   "Milk" : "Dairy";
-//   "Eggs" : "Dairy";
-//}
+// var listDic = [
+//   {"Milk" : "Dairy"},
+//   {"Eggs" : "Dairy"},
+//   {"Beef" : "Meat"},
+//   {"Chicken" : "Meat"}
+// ];
 
 var Grocery = function(name, category) {
   this.name = name,
@@ -55,7 +55,7 @@ var Grocery = function(name, category) {
   categoryList.push(this.category);
 
   this.whichDivID = (function() {
-    alert("This.category is: " + this.category);
+    alert("this.category is: " + this.category);
     switch (this.category) {
       case "dairy":
         return "#dairyList";
@@ -87,10 +87,32 @@ var Grocery = function(name, category) {
   })(),
 
   this.addToList = (function() {
-    alert("This.whichDivID is: " + this.whichDivID);
-    $(this.whichDivID).append('<p class="nestled">Variable worked</p>');
+    $(this.whichDivID).append('<p class="nestled">' + this.name + '</p>');
   })()
 }
+
+$('#itemNameID').focusout(function() {
+  var itemName = $("#itemNameID").val();
+  if ($.inArray(itemName, dairyList) > -1) {
+    $('#categoryNameID').val("dairy");
+  } else if ($.inArray(itemName, bakeryList) > -1) {
+   $('#categoryNameID').val("bakery");
+  } else if ($.inArray(itemName, meatList) > -1) {
+    $('#categoryNameID').val("meat");
+  } else if ($.inArray(itemName, seafoodList) > -1) {
+   $('#categoryNameID').val("seafood");
+  } else if ($.inArray(itemName, dryGoodsList) > -1) {
+    $('#categoryNameID').val("dryGoods");
+  } else if ($.inArray(itemName, produceList) > -1) {
+    $('#categoryNameID').val("produce");
+  } else if ($.inArray(itemName, beveragesList) > -1) {
+    $('#categoryNameID').val("beverages");
+  } else if ($.inArray(itemName, personalItemsList) > -1) {
+    $('#categoryNameID').val("personalItems");
+  } else {
+    $('#categoryNameID').val(null);
+  }
+});
 
 //On button click, grabs values from input fields,
 //creates Ojects and inserts into DOM
@@ -98,9 +120,8 @@ $('#addButton').click(function() {
   var itemName = $("#itemNameID").val();
   var catName = $("#categoryNameID").val();
   Grocery(itemName, catName);
-  alert("itemName and catName are: " + itemName + " " + catName);
-  // alert(itemList);
-  // alert(categoryList);
+  alert(itemList);
+  alert(categoryList);
 });
 
 $(function() {
