@@ -18,42 +18,69 @@
         <select name="categories" id="categoryNameID">
           <option value="dairy">Dairy</option>
           <option value="bakery">Bakery</option>
+<<<<<<< HEAD
           <option value="deli">Deli</option>
           <option value="seafood">Seafood</option>
           <option value="produce">Produce</option>
           <option value="dryGoods">Dry Goods</option>
           <option value="frozen">Frozen</option>
+=======
+          <option value="meat">Meat</option>
+          <option value="seafood">Seafood</option>
+          <option value="dryGoods">Dry Goods</option>
+          <option value="produce">Produce</option>
+          <option value="beverages">Beverages</option>
+          <option value="personalItems">Personal Items</option>
+>>>>>>> 8764c20fd15129f58374c61616ab7f14ec0cd95d
         </select>
         <!-- <p>Or create a new category:</p>
           <input type="text" class="newCategory" name="categoryName" accept-charset="utf-8" placeholder="Name of new category..." /> -->
       </form>
       <button id="addButton">Add item</button>
     </div>
-    <div id="groceryList">
-      <h3>Dairy</h3>
-      <div id="dairyList">
-      </div>
-      <h3>Bakery</h3>
-      <div id="bakeryList">
-      </div>
-      <h3>Deli</h3>
-      <div id="deliList">
-      </div>
-      <h3>Seafood</h3>
-      <div id="seafoodList">
-      </div>
-      <h3>Produce</h3>
-      <div id="produceList">
-      </div>
-      <h3>Dry Goods</h3>
-      <div id="dryGoodsList">
-      </div>
-      <h3>Frozen</h3>
-      <div id="frozenList">
-      </div>
+      <div id="groceryList">
+        <h3>Dairy</h3>
+          <div id="dairyList">
+              <div id="nestledDairy"></div> <!--DIVs for each grocery item-->
+                <div id="nestledDairyX"></div>
+          </div>
+        <h3>Bakery</h3>
+          <div id="bakeryList">
+            <div id="nestledBakery"></div>
+              <div id="nestledBakeryX"></div>
+          </div>
+        <h3>Deli</h3>
+          <div id="deliList">
+            <div id ="nestledDeli"></div>
+              <div id="nestledDeliX"></div>
+          </div>
+        <h3>Seafood</h3>
+          <div id="seafoodList">
+            <div id="nestledSeafood"></div>
+              <div id="nestledSeafoodX"></div>
+          </div>
+        <h3>Produce</h3>
+          <div id="produceList">
+            <div id="nestledProduce"></div>
+              <div id="nestledProduceX"></div>
+          </div>
+        <h3>Dry Goods</h3>
+          <div id="dryGoodsList">
+            <div id="nestledDry"></div>
+              <div id="nestledDryX"></div>
+          </div>
+        <h3>Frozen</h3>
+          <div id="frozenList">
+            <div id="nestledFrozen"></div>
+              <div id="nestledFrozenX"></div>
+          </div>
     </div>
     <script src='jquery-1.11.1.min.js'></script>
     <script src='jquery-ui.js'></script>
+<<<<<<< HEAD
+=======
+    <script src='jquery.com/ui/1.11.1.min.js'></script>
+>>>>>>> 8764c20fd15129f58374c61616ab7f14ec0cd95d
     <script src='index.js' type='text/javascript'></script>
   </body>
 </html>

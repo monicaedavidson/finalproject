@@ -32,4 +32,12 @@ h2 {
   text-align: center;
 }
 
+button {
+  color: #1292BA;
+  border-radius: 19px;
+  padding: 10.5px 21px;
+  text-decoration: none;
+  font-family: Helvetica;
+  border-top: 1px solid black;
 
+}

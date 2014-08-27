@@ -241,3 +241,31 @@ h3 {
   font-family: Helvetica;
   color: white;
 }
+
+#nestledBakery { /*what the div will look like once selected */
+  /*create div box*/
+  font-family: "Georgia";
+  font-weight: normal;
+  width: 100px;
+  height: 50px;
+  color: blue;
+}
+/*repeat these for each category
+
+"width:50px; height:50px; background-color:red"
+
+#nestledBakeryX {
+  /*create X div box*/
+  width: 5px;
+  height: 5px;
+  background-color:;
+}
+/*repeat for each category
+
+
+
+
+
+
+
+/* #37CEEC */
