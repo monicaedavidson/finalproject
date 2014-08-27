@@ -1,4 +1,4 @@
-alert('JS Loaded!');
+// alert('JS Loaded!');
 
 //Lists the items user has added to current grocery list
 var itemList = [];
@@ -47,11 +47,6 @@ var listofAll = dairyList + bakeryList + meatList + seafoodList + produceList +
 //   "Eggs" : "Dairy";
 //}
 
-// Autocomplete
-// $("#itemNameID").autocomplete({
-//   source: listofAll;
-// });
-
 var Grocery = function(name, category) {
   this.name = name,
   this.category = category,
@@ -63,28 +58,28 @@ var Grocery = function(name, category) {
     alert("This.category is: " + this.category);
     switch (this.category) {
       case "dairy":
-        return "id='dairyList'";
+        return "#dairyList";
         break;
       case "bakery":
-        return "id='bakeryList'";
+        return "#bakeryList";
         break;
       case "meat":
-        return "id='meatList'";
+        return "#meatList";
         break;
       case "seafood":
-        return "id='seafoodList'";
+        return "#seafoodList";
         break;
       case "dryGoods":
-        return "id='dryGoodsList'";
+        return "#dryGoodsList";
         break;
       case "produce":
-        return "id='produceList'";
+        return "#produceList";
         break;
       case "beverages":
-        return "id='beveragesList'";
+        return "#beveragesList";
         break;
       case "personalItems":
-        return "id='personalItemsList'";
+        return "#personalItemsList";
         break;
       default:
         return "BLAAAAAAAH";
@@ -93,17 +88,12 @@ var Grocery = function(name, category) {
 
   this.addToList = (function() {
     alert("This.whichDivID is: " + this.whichDivID);
-    var whichDiv = "'#" + this.whichDivID + "'";
-    // var $whichDiv = $
-    alert("which Div is: " + whichDiv);
-    // $whichDiv.append('<p>Test</p>');
+    $(this.whichDivID).append('<p class="nestled">Variable worked</p>');
   })()
 }
 
-//Pseudocode for adding a div
-// $(category).append("<p class='newGroceryitem'>" stuff)
-
-
+//On button click, grabs values from input fields,
+//creates Ojects and inserts into DOM
 $('#addButton').click(function() {
   var itemName = $("#itemNameID").val();
   var catName = $("#categoryNameID").val();
