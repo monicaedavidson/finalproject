@@ -242,14 +242,14 @@ h3 {
   color: white;
 }
 
-/*#nestledItems {
+/*.nestledItems {
   width: 100px;
   height: 40px;
   color: #91DBF6;
 
 }
 
-#removalButton { 
+#.removalButton {
   color: gray;
   font-style: bold;
   font-size: 16px;
