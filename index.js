@@ -35,7 +35,7 @@ rawCategoriesWithItems = {
 };
 
 //list constructor function
-function List (categoryName, itemsInCategory) {
+function List(categoryName, itemsInCategory) {
   this.name = categoryName;
   this.items = itemsInCategory;
   //method to determine if inputted item is in this specific list
@@ -51,6 +51,9 @@ function List (categoryName, itemsInCategory) {
 //list that contains lists all of the categories with their respective items
 var masterList = [];
 
+//List that contains all items designated with the value of their category
+var masterCatDic = []
+
 //populates the master list
 $.each(rawCategoriesWithItems, function(category, items) {
   masterList.push(new List(category, items));
@@ -58,8 +61,16 @@ $.each(rawCategoriesWithItems, function(category, items) {
 
 //list that contains all items individually
 var allItems = [];
+
 $.each(masterList, function(i, list) {
   allItems = allItems.concat(list.items);
+});
+
+//Creates a dictionary where keys are the items and the values are the categories
+$.each(rawCategoriesWithItems, function(category, itemList) {
+  $.each(itemList, function(index, item) {
+    masterCatDic[item] = category;
+  });
 });
 
 //Constructor to create grocery list items upon user selection
@@ -71,9 +82,9 @@ var Grocery = function(name, category) {
   currentCategoryList.push(this.category);
 
   //Inserts a DOM element into the grocery list area
-  this.addToList = (function() {
-    $(this.whichDivID(this.category)).append('<p class="nestled">' + this.name + '</p>');
-  })()
+  // this.addToList = (function() {
+  //   $(this.whichDivID(this.category)).append('<p class="nestled">' + this.name + '</p>');
+  // })()
 }
 
 //User entry Object
@@ -82,33 +93,33 @@ var UserInput = {
 
   //Checks if the item user typed in is in the current list of all
   //if the item is not in the list, it adds it
-  isInListofAll: (function() {
-    $('#itemNameID').focusout(function() {
-      if (allItems.indexOf(this.itemNameVal) > -1) {
-        return true;
-      } else {
-        allItems.push(this.itemNameVal);
-      };
-    })
-  })(),
-
-  //Auto-populates Category with hard-coded value or allows
-  //user to select a category
-
-  // whichCatList: (function() {
-  //   var catNameVal = $('#categoryNameID').val();
-  //   var userInputCat = "";
+  // isInListofAll: (function() {
   //   $('#itemNameID').focusout(function() {
-  //     if (this.isInListofAll) {
-  //       $.each(masterList, function(index, catNameVal) {
-  //         alert("userInputCat is: " + catNameVal);
-  //         userInputCat = "blah";
-  //       })
+  //     if (allItems.indexOf(this.itemNameVal) > -1) {
+  //       return true;
   //     } else {
-  //       return null;
-  //     }
+  //       allItems.push(this.itemNameVal);
+  //     };
   //   })
-  // })()
+  // })(),
+
+  // Auto-populates Category with hard-coded value or allows
+  // user to select a category
+
+  whichCatList: (function() {
+    var catNameVal = $('#categoryNameID').val();
+    var userInputCat = "";
+    $('#itemNameID').focusout(function() {
+      if (this.isInListofAll) {
+        $.each(masterList, function(index, catNameVal) {
+          alert("userInputCat is: " + catNameVal);
+          userInputCat = "blah";
+        })
+      } else {
+        return null;
+      }
+    })
+  })()
 }
 
 //Button object
@@ -118,8 +129,6 @@ var Button = {
       var itemName = $("#itemNameID").val();
       var catName = $("#categoryNameID").val();
       new Grocery(itemName, catName);
-      // alert(currentGroceryList);
-      // alert(currentCategoryList);
     })
   })()
 }
@@ -130,8 +139,5 @@ $(function() {
 
 //taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
-  // callback function:
-  //onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
-  // local autosuggest options:
   lookup: allItems
 });
