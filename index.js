@@ -53,7 +53,7 @@ function List(categoryName, itemsInCategory) {
 var masterList = [];
 
 //List that contains all items designated with the value of their category
-var masterCatDic = [];
+var masterCatDic = []
 
 //populates the master list
 $.each(rawCategoriesWithItems, function(category, items) {
@@ -87,16 +87,8 @@ var Grocery = function(name, category) {
   this.addToList = (function() {
     var cat = "#" + masterCatDic[User.itemNameVal()];
     var name = $('#itemNameID').val();
-    $(cat).append('<div class="listItemContainer"><p class="unchecked">' + this.name + '</p><div class="removalButton"></div></div>');
+    $(cat).append('<p class="unchecked">' + name + '</p>');
   })()
-
-  // this.removeFromList = (function() {
-  //   $('.removalButton').click(function() {
-  //     // alert("Remove list fired!");
-  //     var selector = "'div < " + this + "'";
-  //     $(selector).remove();
-  //   })
-  // })();
 }
 
 //User input Object
@@ -148,9 +140,9 @@ var Button = {
   })()
 }
 
-// $(function() {
-//   $("#groceryList").accordion();
-// });
+$(function() {
+  $("#groceryList").accordion();
+});
 
 //taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
