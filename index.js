@@ -48,12 +48,18 @@ function List (categoryName, itemsInCategory) {
   }
 };
 
-//list that contains all of the categories with their respective items
+//list that contains lists all of the categories with their respective items
 var masterList = [];
 
 //populates the master list
 $.each(rawCategoriesWithItems, function(category, items) {
   masterList.push(new List(category, items));
+});
+
+//list that contains all items individually
+var allItems = [];
+$.each(masterList, function(i, list) {
+  allItems = allItems.concat(list.items);
 });
 
 var Grocery = function(name, category) {
@@ -93,53 +99,66 @@ var Grocery = function(name, category) {
   //     default:
   //       return "BLAAAAAAAH";
   //   };
-  }),
+  // }),
 
   this.addToList = (function() {
     $(this.whichDivID).append('<p class="nestled">' + this.name + '</p>');
   })()
 }
 
-$('#itemNameID').focusout(function() {
-  var itemName = $("#itemNameID").val();
-  if ($.inArray(itemName, dairyList) > -1) {
-    $('#categoryNameID').val("dairy");
-  } else if ($.inArray(itemName, bakeryList) > -1) {
-   $('#categoryNameID').val("bakery");
-  } else if ($.inArray(itemName, meatList) > -1) {
-    $('#categoryNameID').val("meat");
-  } else if ($.inArray(itemName, seafoodList) > -1) {
-   $('#categoryNameID').val("seafood");
-  } else if ($.inArray(itemName, dryGoodsList) > -1) {
-    $('#categoryNameID').val("dryGoods");
-  } else if ($.inArray(itemName, produceList) > -1) {
-    $('#categoryNameID').val("produce");
-  } else if ($.inArray(itemName, beveragesList) > -1) {
-    $('#categoryNameID').val("beverages");
-  } else if ($.inArray(itemName, personalItemsList) > -1) {
-    $('#categoryNameID').val("personalItems");
-  } else {
-    $('#categoryNameID').val(null);
-  }
-});
+//User entry Object
+var UserInput = {
+  findCategory: (function() {
+    $('#itemNameID').focusout(function() {
+      var itemName = $("#itemNameID").val();
+      if (allItems.indexOf(itemName) > -1) {
+        alert("Trueness");
+        return true
+      };
+    // alert(allItems.indexOf(itemName));
+    })
+  })()
+}
 
-//On button click, grabs values from input fields,
-//creates Ojects and inserts into DOM
-$('#addButton').click(function() {
-  var itemName = $("#itemNameID").val();
-  var catName = $("#categoryNameID").val();
-  Grocery(itemName, catName);
-  alert(itemList);
-  alert(categoryList);
-});
+//   $('#itemNameID').focusout(function() {
+//   var itemName = $("#itemNameID").val();
+//   if ($.inArray(itemName, dairyList) > -1) {
+//     $('#categoryNameID').val("dairy");
+//   } else if ($.inArray(itemName, bakeryList) > -1) {
+//    $('#categoryNameID').val("bakery");
+//   } else if ($.inArray(itemName, meatList) > -1) {
+//     $('#categoryNameID').val("meat");
+//   } else if ($.inArray(itemName, seafoodList) > -1) {
+//    $('#categoryNameID').val("seafood");
+//   } else if ($.inArray(itemName, dryGoodsList) > -1) {
+//     $('#categoryNameID').val("dryGoods");
+//   } else if ($.inArray(itemName, produceList) > -1) {
+//     $('#categoryNameID').val("produce");
+//   } else if ($.inArray(itemName, beveragesList) > -1) {
+//     $('#categoryNameID').val("beverages");
+//   } else if ($.inArray(itemName, personalItemsList) > -1) {
+//     $('#categoryNameID').val("personalItems");
+//   } else {
+//     $('#categoryNameID').val(null);
+//   }
+// )});
+// }
+
+//Button object
+var Button = {
+  userClicked: (function() {
+    $('#addButton').click(function() {
+      var itemName = $("#itemNameID").val();
+      var catName = $("#categoryNameID").val();
+      new Grocery(itemName, catName);
+      // alert(currentGroceryList);
+      // alert(currentCategoryList);
+    })
+  })()
+}
 
 $(function() {
   $("#groceryList").accordion();
-});
-
-var allItems = [];
-$.each(masterList, function(i, list) {
-  allItems = allItems.concat(list.items);
 });
 
 //taken from devbridge guide to autocomplete
