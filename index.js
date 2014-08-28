@@ -1,6 +1,7 @@
 //Lists the items user has added to current grocery list
 var currentGroceryList = [];
 var currentCategoryList = [];
+var currentGroceryListBought = [];
 
 //raw data of items
 rawCategoriesWithItems = {
@@ -80,6 +81,7 @@ var Grocery = function(name, category) {
 
   currentGroceryList.push(this.name);
   currentCategoryList.push(this.category);
+  currentGroceryListBought.push(false);
 
   //Inserts a DOM element into the grocery list area
   this.addToList = (function() {
@@ -146,3 +148,25 @@ $(function() {
 var a = $('#itemNameID').autocomplete({
   lookup: allItems
 });
+
+
+// function (name) {
+
+//     // search currentGroceryList for "name", get its index
+//     // if name found, use the index to set currentGroceryListBought[i] = true
+//     for (var i = 0; i < currentGroceryList.length; i++) {
+//         if (currentGroceryList[i] == name) {
+//             currentGroceryListBought[i] = true;
+//         }
+//     }
+    
+//     // now go through currentGroceryListBought and see if all are true yet
+//     //  if not all bought, exit this function
+//     //  else all are true (bought), call getElapsedTime()
+//     for (var i = 0; i < currentGroceryListBought.length; i++) {
+//         if (currentGroceryListBought[i] == false) {
+//             return;  // something still left to buy, go back to html
+//         }
+//     }
+//     getElapsedTime ();  // done shopping!
+}

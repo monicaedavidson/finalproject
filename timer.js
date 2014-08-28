@@ -1,17 +1,12 @@
 
 var myVar = setInterval(function(){myTimer()}, 1000);
-var startTime;   // string with time that start button was pushed, "hh:mm:ss"
+var startTime;   
 var elapsedTimeSec; // number of seconds since start button pushed
 
 //set interval
 function myTimer() {
     elapsedTimeSec = elapsedTimeSec + 1;  // increment time
-//ending function "automatically":    
-    // check the shopping list and see if done
 
-    
-    // if all purchased, call myStopFunction()
-    // tbd
 }
 
 //clear interval
