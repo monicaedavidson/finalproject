@@ -177,4 +177,4 @@ var a = $('#itemNameID').autocomplete({
 //         }
 //     }
 //     getElapsedTime ();  // done shopping!
-}
+//}
