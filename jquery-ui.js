@@ -6222,13 +6222,6 @@ var accordion = $.widget( "ui.accordion", {
 		this._trigger( "activate", null, data );
 	}
 
-	//to accomodate new divs
-	if (new div) {
-		add space to accomodate new div
-	};
-});
-
-
 /*!
  * jQuery UI Menu 1.11.1
  * http://jqueryui.com
