@@ -6222,6 +6222,8 @@ var accordion = $.widget( "ui.accordion", {
 		this._trigger( "activate", null, data );
 	}
 
+});
+
 /*!
  * jQuery UI Menu 1.11.1
  * http://jqueryui.com
