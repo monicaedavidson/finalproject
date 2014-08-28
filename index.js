@@ -62,6 +62,7 @@ $.each(masterList, function(i, list) {
   allItems = allItems.concat(list.items);
 });
 
+//Constructor to create grocery list items upon user selection
 var Grocery = function(name, category) {
   this.name = name,
   this.category = category,
@@ -69,38 +70,7 @@ var Grocery = function(name, category) {
   currentGroceryList.push(this.name);
   currentCategoryList.push(this.category);
 
-  // this.whichDivID = (function() {
-  //   alert("this.category is: " + this.category);
-  //   switch (this.category) {
-  //     case "dairy":
-  //       return "#dairyList";
-  //       break;
-  //     case "bakery":
-  //       return "#bakeryList";
-  //       break;
-  //     case "meat":
-  //       return "#meatList";
-  //       break;
-  //     case "seafood":
-  //       return "#seafoodList";
-  //       break;
-  //     case "dryGoods":
-  //       return "#dryGoodsList";
-  //       break;
-  //     case "produce":
-  //       return "#produceList";
-  //       break;
-  //     case "beverages":
-  //       return "#beveragesList";
-  //       break;
-  //     case "personalItems":
-  //       return "#personalItemsList";
-  //       break;
-  //     default:
-  //       return "BLAAAAAAAH";
-  //   };
-  // }),
-
+  //Inserts a DOM element into the grocery list area
   this.addToList = (function() {
     $(this.whichDivID).append('<p class="nestled">' + this.name + '</p>');
   })()
@@ -108,41 +78,38 @@ var Grocery = function(name, category) {
 
 //User entry Object
 var UserInput = {
-  findCategory: (function() {
-    $('#itemNameID').focusout(function() {
-      var itemName = $("#itemNameID").val();
-      if (allItems.indexOf(itemName) > -1) {
-        alert("Trueness");
-        return true
-      };
-    // alert(allItems.indexOf(itemName));
-    })
-  })()
-}
+  itemNameVal: $('#itemNameID').val(),
 
-//   $('#itemNameID').focusout(function() {
-//   var itemName = $("#itemNameID").val();
-//   if ($.inArray(itemName, dairyList) > -1) {
-//     $('#categoryNameID').val("dairy");
-//   } else if ($.inArray(itemName, bakeryList) > -1) {
-//    $('#categoryNameID').val("bakery");
-//   } else if ($.inArray(itemName, meatList) > -1) {
-//     $('#categoryNameID').val("meat");
-//   } else if ($.inArray(itemName, seafoodList) > -1) {
-//    $('#categoryNameID').val("seafood");
-//   } else if ($.inArray(itemName, dryGoodsList) > -1) {
-//     $('#categoryNameID').val("dryGoods");
-//   } else if ($.inArray(itemName, produceList) > -1) {
-//     $('#categoryNameID').val("produce");
-//   } else if ($.inArray(itemName, beveragesList) > -1) {
-//     $('#categoryNameID').val("beverages");
-//   } else if ($.inArray(itemName, personalItemsList) > -1) {
-//     $('#categoryNameID').val("personalItems");
-//   } else {
-//     $('#categoryNameID').val(null);
-//   }
-// )});
-// }
+  //Checks if the item user typed in is in the current list of all
+  //if the item is not in the list, it adds it
+  isInListofAll: (function() {
+    $('#itemNameID').focusout(function() {
+      if (allItems.indexOf(this.itemNameVal) > -1) {
+        return true;
+      } else {
+        allItems.push(this.itemNameVal);
+      };
+    })
+  })(),
+
+  //Auto-populates Category with hard-coded value or allows
+  //user to select a category
+
+  // whichCatList: (function() {
+  //   var catNameVal = $('#categoryNameID').val();
+  //   var userInputCat = "";
+  //   $('#itemNameID').focusout(function() {
+  //     if (this.isInListofAll) {
+  //       $.each(masterList, function(index, catNameVal) {
+  //         alert("userInputCat is: " + catNameVal);
+  //         userInputCat = "blah";
+  //       })
+  //     } else {
+  //       return null;
+  //     }
+  //   })
+  // })()
+}
 
 //Button object
 var Button = {
