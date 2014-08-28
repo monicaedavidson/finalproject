@@ -72,7 +72,7 @@ var Grocery = function(name, category) {
 
   //Inserts a DOM element into the grocery list area
   this.addToList = (function() {
-    $(this.whichDivID).append('<p class="nestled">' + this.name + '</p>');
+    $(this.whichDivID(this.category)).append('<p class="nestled">' + this.name + '</p>');
   })()
 }
 
