@@ -5,7 +5,13 @@ var elapsedTimeSec; // number of seconds since start button pushed
 
 //set interval
 function myTimer() {
-    elapsedTimeSec = elapsedTimeSec + 1;
+    elapsedTimeSec = elapsedTimeSec + 1;  // increment time
+//ending function "automatically":    
+    // check the shopping list and see if done
+
+    
+    // if all purchased, call myStopFunction()
+    // tbd
 }
 
 //clear interval
