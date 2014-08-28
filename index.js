@@ -88,38 +88,42 @@ var Grocery = function(name, category) {
 }
 
 //User entry Object
-var UserInput = {
-  itemNameVal: $('#itemNameID').val(),
+var User = {
+  itemNameVal: function() {
+    var name = $('#itemNameID').val();
+    return name;
+  },
+
+  catNameVal: function() {
+    var cat = $('#categoryNameID').val();
+    return cat;
+  },
 
   //Checks if the item user typed in is in the current list of all
   //if the item is not in the list, it adds it
-  // isInListofAll: (function() {
-  //   $('#itemNameID').focusout(function() {
-  //     if (allItems.indexOf(this.itemNameVal) > -1) {
-  //       return true;
-  //     } else {
-  //       allItems.push(this.itemNameVal);
-  //     };
-  //   })
-  // })(),
+  isInListofAll: function() {
+    var name = User.itemNameVal();
+    if (allItems.indexOf(name) > -1) {
+      return true;
+    } else {
+      allItems.push(User.itemNameVal);
+      return false;
+    }
+  },
 
   // Auto-populates Category with hard-coded value or allows
   // user to select a category
-
   whichCatList: (function() {
-    var catNameVal = $('#categoryNameID').val();
-    var userInputCat = "";
     $('#itemNameID').focusout(function() {
-      if (this.isInListofAll) {
-        $.each(masterList, function(index, catNameVal) {
-          alert("userInputCat is: " + catNameVal);
-          userInputCat = "blah";
-        })
-      } else {
+      alert(User.isInListofAll());
+      if (User.isInListofAll) {
+        var cat = masterCatDic[User.itemNameVal()];
+        $('#categoryNameID').val(cat);
+        } else {
         return null;
-      }
-    })
-  })()
+        }
+    });
+  })(),
 }
 
 //Button object
