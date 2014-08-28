@@ -63,9 +63,9 @@ var Grocery = function(name, category) {
   itemList.push(this.name);
   categoryList.push(this.category);
 
-  this.whichDivID = (function() {
-    alert("this.category is: " + this.category);
-    switch (this.category) {
+  this.whichDivID = (function(cat) {  // pass cat to this function because this.category is out of scope (:
+    alert("this.category is: " + cat);
+    switch (cat) {
       case "dairy":
         return "#dairyList";
         break;
@@ -96,7 +96,7 @@ var Grocery = function(name, category) {
   }),
 
   this.addToList = (function() {
-    $(this.whichDivID).append('<p class="nestled">' + this.name + '</p>');
+    $(this.whichDivID(this.category)).append('<p class="nestled">' + this.name + '</p>');
   })()
 }
 
