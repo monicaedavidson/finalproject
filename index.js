@@ -82,12 +82,25 @@ var Grocery = function(name, category) {
   currentCategoryList.push(this.category);
 
   //Inserts a DOM element into the grocery list area
-  // this.addToList = (function() {
-  //   $(this.whichDivID(this.category)).append('<p class="nestled">' + this.name + '</p>');
-  // })()
+  this.addToList = (function() {
+    var cat = "#" + masterCatDic[User.itemNameVal()];
+    alert("Cat = " + cat);
+    $('#bakery').append('<p>' + this.name + '</p>');
+
+  // whichCatList: (function() {
+  //   $('#itemNameID').focusout(function() {
+  //     if (User.isInListofAll) {
+  //       var cat = masterCatDic[User.itemNameVal()];
+  //       $('#categoryNameID').val(cat);
+  //       } else {
+  //       return null;
+  //       }
+  //   });
+  // })(),
+  })()
 }
 
-//User entry Object
+//User input Object
 var User = {
   itemNameVal: function() {
     var name = $('#itemNameID').val();
@@ -115,7 +128,6 @@ var User = {
   // user to select a category
   whichCatList: (function() {
     $('#itemNameID').focusout(function() {
-      alert(User.isInListofAll());
       if (User.isInListofAll) {
         var cat = masterCatDic[User.itemNameVal()];
         $('#categoryNameID').val(cat);
