@@ -6221,6 +6221,11 @@ var accordion = $.widget( "ui.accordion", {
 		}
 		this._trigger( "activate", null, data );
 	}
+
+	//to accomodate new divs
+	if (new div) {
+		add space to accomodate new div
+	};
 });
 
 
