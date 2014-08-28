@@ -1,6 +1,6 @@
 //Lists the items user has added to current grocery list
-var itemList = [];
-var categoryList = [];
+var currentGroceryList = [];
+var currentCategoryList = [];
 
 //raw data of items
 rawCategoriesWithItems = {
@@ -60,39 +60,39 @@ var Grocery = function(name, category) {
   this.name = name,
   this.category = category,
 
-  itemList.push(this.name);
-  categoryList.push(this.category);
+  currentGroceryList.push(this.name);
+  currentCategoryList.push(this.category);
 
-  this.whichDivID = (function() {
-    alert("this.category is: " + this.category);
-    switch (this.category) {
-      case "dairy":
-        return "#dairyList";
-        break;
-      case "bakery":
-        return "#bakeryList";
-        break;
-      case "meat":
-        return "#meatList";
-        break;
-      case "seafood":
-        return "#seafoodList";
-        break;
-      case "dryGoods":
-        return "#dryGoodsList";
-        break;
-      case "produce":
-        return "#produceList";
-        break;
-      case "beverages":
-        return "#beveragesList";
-        break;
-      case "personalItems":
-        return "#personalItemsList";
-        break;
-      default:
-        return "BLAAAAAAAH";
-    };
+  // this.whichDivID = (function() {
+  //   alert("this.category is: " + this.category);
+  //   switch (this.category) {
+  //     case "dairy":
+  //       return "#dairyList";
+  //       break;
+  //     case "bakery":
+  //       return "#bakeryList";
+  //       break;
+  //     case "meat":
+  //       return "#meatList";
+  //       break;
+  //     case "seafood":
+  //       return "#seafoodList";
+  //       break;
+  //     case "dryGoods":
+  //       return "#dryGoodsList";
+  //       break;
+  //     case "produce":
+  //       return "#produceList";
+  //       break;
+  //     case "beverages":
+  //       return "#beveragesList";
+  //       break;
+  //     case "personalItems":
+  //       return "#personalItemsList";
+  //       break;
+  //     default:
+  //       return "BLAAAAAAAH";
+  //   };
   }),
 
   this.addToList = (function() {
@@ -144,10 +144,8 @@ $.each(masterList, function(i, list) {
 
 //taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
-
   // callback function:
   //onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
-  // local autosugest options:
+  // local autosuggest options:
   lookup: allItems
-     //local lookup values
 });
