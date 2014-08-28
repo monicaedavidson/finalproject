@@ -84,8 +84,8 @@ var Grocery = function(name, category) {
   //Inserts a DOM element into the grocery list area
   this.addToList = (function() {
     var cat = "#" + masterCatDic[User.itemNameVal()];
-    alert("Cat = " + cat);
-    $('#bakery').append('<p>' + this.name + '</p>');
+    var name = $('#itemNameID').val();
+    $(cat).append('<p>' + name + '</p>');
   })()
 }
 
