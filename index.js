@@ -85,8 +85,14 @@ var Grocery = function(name, category) {
   this.addToList = (function() {
     var cat = "#" + masterCatDic[User.itemNameVal()];
     var name = $('#itemNameID').val();
-    $(cat).append('<p class="unchecked">' + name + '</p>');
+    $(cat).append('<div class="listItemContainer"><p class="unchecked">' + this.name + '</p><div class="removalButton"></div></div>');
   })()
+
+  this.removeFromList = (function() {
+    $('removalButton').click(function() {
+      $('.listItemContainer').remove();
+    })
+  })
 }
 
 //User input Object
