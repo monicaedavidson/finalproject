@@ -86,17 +86,6 @@ var Grocery = function(name, category) {
     var cat = "#" + masterCatDic[User.itemNameVal()];
     alert("Cat = " + cat);
     $('#bakery').append('<p>' + this.name + '</p>');
-
-  // whichCatList: (function() {
-  //   $('#itemNameID').focusout(function() {
-  //     if (User.isInListofAll) {
-  //       var cat = masterCatDic[User.itemNameVal()];
-  //       $('#categoryNameID').val(cat);
-  //       } else {
-  //       return null;
-  //       }
-  //   });
-  // })(),
   })()
 }
 
