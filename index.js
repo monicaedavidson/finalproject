@@ -87,12 +87,12 @@ var Grocery = function(name, category) {
   this.addToList = (function() {
     var cat = "#" + masterCatDic[User.itemNameVal()];
     var name = $('#itemNameID').val();
-    $(cat).append('<p>' + name + '</p>');
+    $(cat).append('<p class="unchecked list-item">' + name + '</p>');
   })(),
   //cross' out each grocery item when the user has picked it up
   this.crossOut = (function() {
     $("p").click(function() {
-      $(this).toggleClass("checked"); 
+      $(this).removeClass("unchecked");
     })
   })()
 }
@@ -155,7 +155,12 @@ var a = $('#itemNameID').autocomplete({
   lookup: allItems
 });
 
+// var Endbutton = {
+//   $.each()
+// }
 
+
+<<<<<<< HEAD
 function (name) { //make in object
 
     // search currentGroceryList for "name", get its index
@@ -184,4 +189,25 @@ function (name) { //make in object
 //       $(this).toggleClass("checked"); 
 //     })
 //   })()
+=======
+// function (name) {
+
+//     // search currentGroceryList for "name", get its index
+//     // if name found, use the index to set currentGroceryListBought[i] = true
+//     for (var i = 0; i < currentGroceryList.length; i++) {
+//         if (currentGroceryList[i] == name) {
+//             currentGroceryListBought[i] = true;
+//         }
+//     }
+
+//     // now go through currentGroceryListBought and see if all are true yet
+//     //  if not all bought, exit this function
+//     //  else all are true (bought), call getElapsedTime()
+//     for (var i = 0; i < currentGroceryListBought.length; i++) {
+//         if (currentGroceryListBought[i] == false) {
+//             return;  // something still left to buy, go back to html
+//         }
+//     }
+//     getElapsedTime ();  // done shopping!
+>>>>>>> a3f29934a44470d9450a527c79b82ab76b442062
 // }
