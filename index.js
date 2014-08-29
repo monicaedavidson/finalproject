@@ -156,23 +156,32 @@ var a = $('#itemNameID').autocomplete({
 });
 
 
-// function (name) {
+function (name) { //make in object
 
-//     // search currentGroceryList for "name", get its index
-//     // if name found, use the index to set currentGroceryListBought[i] = true
-//     for (var i = 0; i < currentGroceryList.length; i++) {
-//         if (currentGroceryList[i] == name) {
-//             currentGroceryListBought[i] = true;
-//         }
-//     }
+    // search currentGroceryList for "name", get its index
+    // if name found, use the index to set currentGroceryListBought[i] = true
+    for (var i = 0; i < currentGroceryList.length; i++) {
+        if (currentGroceryList[i] == name) {
+            currentGroceryListBought[i] = true;
+        }
+    }
     
-//     // now go through currentGroceryListBought and see if all are true yet
-//     //  if not all bought, exit this function
-//     //  else all are true (bought), call getElapsedTime()
-//     for (var i = 0; i < currentGroceryListBought.length; i++) {
-//         if (currentGroceryListBought[i] == false) {
-//             return;  // something still left to buy, go back to html
-//         }
-//     }
-//     getElapsedTime ();  // done shopping!
+    // now go through currentGroceryListBought and see if all are true yet
+    //  if not all bought, exit this function
+    //  else all are true (bought), call getElapsedTime()
+    for (var i = 0; i < currentGroceryListBought.length; i++) {
+        if (currentGroceryListBought[i] == false) {
+            return;  // something still left to buy, go back to html
+        }
+    }
+    getElapsedTime ();  // done shopping!
+}
+
+//
+
+//   this.crossOut = (function() {
+//     $("p").click(function() {
+//       $(this).toggleClass("checked"); 
+//     })
+//   })()
 // }
