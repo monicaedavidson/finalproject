@@ -87,7 +87,13 @@ var Grocery = function(name, category) {
   this.addToList = (function() {
     var cat = "#" + masterCatDic[User.itemNameVal()];
     var name = $('#itemNameID').val();
-    $(cat).append('<p class="unchecked">' + name + '</p>');
+    $(cat).append('<p>' + name + '</p>');
+  })(),
+  //cross' out each grocery item when the user has picked it up
+  this.crossOut = (function() {
+    $("p").click(function() {
+      $(this).toggleClass("checked"); 
+    })
   })()
 }
 
@@ -140,9 +146,9 @@ var Button = {
   })()
 }
 
-$(function() {
-  $("#groceryList").accordion();
-});
+// $(function() {
+//   $("#groceryList").accordion();
+// });
 
 //taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
@@ -169,4 +175,4 @@ var a = $('#itemNameID').autocomplete({
 //         }
 //     }
 //     getElapsedTime ();  // done shopping!
-//}
+// }

@@ -6223,9 +6223,9 @@ var accordion = $.widget( "ui.accordion", {
 	}
 
 	//to accomodate new divs
-	if (new div) {
-		add space to accomodate new div
-	};
+	// if (new div) {
+	// 	add space to accomodate new div
+	// };
 });
 
 
