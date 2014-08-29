@@ -143,6 +143,13 @@ var Button = {
       var catName = $("#categoryNameID").val();
       new Grocery(itemName, catName);
     })
+  })(),
+
+  clearInput: (function() {
+    $('#addButton').click(function() {
+      $("#itemNameID").val("");
+      $("#categoryNameID").val("");
+    })
   })()
 }
 
