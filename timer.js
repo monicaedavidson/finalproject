@@ -1,28 +1,23 @@
 
 var myVar = setInterval(function(){myTimer()}, 1000);
 var startTime;   
-var elapsedTimeSec; // number of seconds since start button pushed
+var elapsedTimeSec; 
 
-//set interval
 function myTimer() {
-    elapsedTimeSec = elapsedTimeSec + 1;  // increment time
+    elapsedTimeSec = elapsedTimeSec + 1;  
 
 }
 
-//clear interval
-//ends when list is completed
 function myStopFunction() {
     clearInterval(myVar);
 }
 
-// start button call this
 function startTimer (){
     var d = new Date();
-    startTime = d.toLocaleTimeString(); //starts when start button is pushed
+    startTime = d.toLocaleTimeString(); 
     elapsedTimeSec = 0;
 }
 
-// something gets the elapsed time string
 function getElapsedTime() {
     var hrs = Math.floor(elapsedTimeSec / 3600);
     elapsedTimeSec = elapsedTimeSec - hrs*3600;

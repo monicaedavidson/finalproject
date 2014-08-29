@@ -93,7 +93,7 @@ var Grocery = function(name, category) {
   this.crossOut = (function() {
     $("p").click(function() {
       $(this).removeClass("unchecked");
-      updateBoughtList(name);
+      updateBoughtList(name); //why being called twice?
     })
   })()
 }
@@ -134,7 +134,6 @@ var User = {
     });
   })(),
 }
-
 //Button object
 var Button = {
   userClicked: (function() {
@@ -153,17 +152,27 @@ var Button = {
   })()
 }
 
-// $(function() {
-//   $("#groceryList").accordion();
-// });
-
-//taken from devbridge guide to autocomplete
 var a = $('#itemNameID').autocomplete({
   lookup: allItems
 });
 
 function updateBoughtList(name) { //make in object
 
+<<<<<<< HEAD
+    for (var i = 0; i < currentGroceryList.length; i++) {
+        if (currentGroceryList[i] == name) {
+            currentGroceryListBought[i] = true;
+            break;
+        }
+    }
+    
+    for (var i = 0; i < currentGroceryListBought.length; i++) {
+        if (currentGroceryListBought[i] == false) {
+            return;  
+        }
+    }
+    getElapsedTime (); 
+=======
   // search currentGroceryList for "name", get its index
   // if name found, use the index to set currentGroceryListBought[i] = true
   for (var i = 0; i < currentGroceryList.length; i++) {
@@ -182,5 +191,6 @@ function updateBoughtList(name) { //make in object
       }
   }
   getElapsedTime();  // done shopping!
+>>>>>>> 8ea5ef3ee2c0146944459ca6e8d224ede1a55002
 }
 
