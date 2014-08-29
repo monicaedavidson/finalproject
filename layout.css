@@ -17,7 +17,6 @@ p {
   color: white;
 }
 
-/* below was ripped and kind of edited for our purposes from a base.css in skeleton */
 select {
   border: 1px solid #ccc;
   padding: 6px 4px;
@@ -105,7 +104,6 @@ textarea {
   text-align: center;
 }
 
-/* Fix for odd Mozilla border & padding issues */
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -230,8 +228,6 @@ label span, legend span {
   color: #444;
 }
 
-/* end of part ripped from a base.css in skeleton */
-
 #groceryList {
   margin-left: 20%;
   width: 60%;
@@ -242,25 +238,3 @@ h3 {
   color: white;
 }
 
-/*.nestledItems {
-  width: 100px;
-  height: 40px;
-  color: #91DBF6;
-
-}
-
-.removalButton {
-  color: gray;
-  font-style: bold;
-  font-size: 16px;
-
-}*/
-
-
-
-
-
-
-
-
-/* #37CEEC
