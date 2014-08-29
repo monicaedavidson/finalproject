@@ -87,12 +87,12 @@ var Grocery = function(name, category) {
   this.addToList = (function() {
     var cat = "#" + masterCatDic[User.itemNameVal()];
     var name = $('#itemNameID').val();
-    $(cat).append('<p>' + name + '</p>');
+    $(cat).append('<p class="unchecked list-item">' + name + '</p>');
   })(),
   //cross' out each grocery item when the user has picked it up
   this.crossOut = (function() {
     $("p").click(function() {
-      $(this).toggleClass("checked"); 
+      $(this).removeClass("unchecked");
     })
   })()
 }
@@ -155,6 +155,10 @@ var a = $('#itemNameID').autocomplete({
   lookup: allItems
 });
 
+// var Endbutton = {
+//   $.each()
+// }
+
 
 // function (name) {
 
@@ -165,7 +169,7 @@ var a = $('#itemNameID').autocomplete({
 //             currentGroceryListBought[i] = true;
 //         }
 //     }
-    
+
 //     // now go through currentGroceryListBought and see if all are true yet
 //     //  if not all bought, exit this function
 //     //  else all are true (bought), call getElapsedTime()
